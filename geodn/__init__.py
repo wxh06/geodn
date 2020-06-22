@@ -1,25 +1,20 @@
-from telnetlib import Telnet
+from os import path
 import sys
 
+import geoip2.database
 import requests
 
 
 def main(domain, provider=None):
     ipa = resolve(domain, provider)
-    telnet = whois(ipa, 'apnic')  # TODO
-    country = read_country(telnet)
-    telnet.close()
-    return country
-
-
-def read_country(telnet):
-    return telnet.expect([br'country: +([A-Z]{2})'])[1].group(1).decode()
-
-
-def whois(ipa, source='apnic'):
-    telnet = Telnet(f'whois.{source}.net', 43)
-    telnet.write(bytes(ipa, encoding='utf-8') + b'\r\n')
-    return telnet
+    reader = geoip2.database.Reader(
+        path.join(
+            path.dirname(__file__),
+            'GeoLite2-Country_20200616/GeoLite2-Country.mmdb'
+        )
+    )
+    response = reader.country(ipa)
+    return response.country.iso_code
 
 
 def resolve(domain_name, provider=None):
