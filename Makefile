@@ -30,7 +30,7 @@ pip:
 	pip install -Ur requirements.txt
 
 
-test: 
+test:
 	python3 test_geodn.py
 
 pytest:
