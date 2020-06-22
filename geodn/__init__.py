@@ -5,12 +5,15 @@ import geoip2.database
 import requests
 
 
+__version__ = '0.20200616.2'
+
+
 def main(domain, provider=None):
     ipa = resolve(domain, provider)
     reader = geoip2.database.Reader(
         path.join(
             path.dirname(__file__),
-            'GeoLite2-Country_20200616/GeoLite2-Country.mmdb'
+            f'GeoLite2-Country_{__version__[2:-2]}/GeoLite2-Country.mmdb'
         )
     )
     response = reader.country(ipa)
