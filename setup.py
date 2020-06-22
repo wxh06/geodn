@@ -6,7 +6,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='geodn',
-    version='0.20200616.0',
+    version='0.20200616.1',
     author='汪心禾',
     author_email='wangxinhe06@gmail.com',
     description='Geo Domain Name',
