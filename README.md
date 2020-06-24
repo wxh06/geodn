@@ -1,5 +1,6 @@
 # geodn
 [![Python package](https://github.com/wxh06/geodn/workflows/Python%20package/badge.svg)](https://github.com/wxh06/geodn/actions?query=workflow%3A%22Python+package%22)
+[![Upload Python Package](https://github.com/wxh06/geodn/workflows/Upload%20Python%20Package/badge.svg)](https://github.com/wxh06/geodn/actions?query=workflow%3A%22Upload+Python+Package%22)
 
 Geo Domain Name
 
